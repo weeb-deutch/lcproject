@@ -1,4 +1,5 @@
 input.onButtonPressed(Button.A, function () {
+    basic.showIcon(IconNames.Yes)
     logging = true
     serial.writeLine("start")
 })
@@ -9,6 +10,7 @@ input.onButtonPressed(Button.AB, function () {
     basic.showString("deleted")
 })
 input.onButtonPressed(Button.B, function () {
+    basic.showIcon(IconNames.Sad)
     logging = false
     serial.writeLine("end")
 })
@@ -19,7 +21,6 @@ datalogger.setColumnTitles(
 )
 loops.everyInterval(1000, function () {
     if (logging) {
-        basic.showIcon(IconNames.Yes)
         datalogger.log(
         datalogger.createCV("Light", input.lightLevel()),
         datalogger.createCV("Temp", input.temperature())
