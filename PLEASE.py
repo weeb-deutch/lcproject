@@ -8,4 +8,6 @@ while True:
         connection.readline().decode().strip()
     print("started")
     print(data)
+    with open("data.csv","a+") as file:
+        file.write("\n" +str(time)+ ",")
 
